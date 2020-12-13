@@ -16,10 +16,10 @@ export class Tarefa extends Model<Tarefa>{
     descricao: string;
 
     @Column({
-        type: DataType.STRING,
+        type: DataType.INTEGER,
         allowNull: false
     })
-    responsavelTarefa: string;
+    responsavelTarefa: number;
 
     @Column({
         type: DataType.DATE,

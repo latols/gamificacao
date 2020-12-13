@@ -15,6 +15,10 @@ export class FuncionariosService {
         return this.funcionarioModel.findAll();
     }
 
+    async autenticar(funcionario : Funcionario): Promise<Funcionario> {
+        return this.funcionarioModel.findOne({ where: { email: funcionario.email, senha: funcionario.senha } });
+    }
+
     async cadastrar(funcionario: Funcionario) {
         this.funcionarioModel.create(funcionario);
     }

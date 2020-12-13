@@ -30,8 +30,10 @@ export class TarefasService {
         });
     }
 
-    async exibirTarefas(): Promise<Tarefa[]> {
-        return this.tarefaModel.findAll();
+    async exibirTarefas(id : number): Promise<Tarefa[]> {
+        return this.tarefaModel.findAll( {where: {
+            responsavelTarefa: id
+        }});
     }
 
 }

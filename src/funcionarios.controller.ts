@@ -13,6 +13,11 @@ export class FuncionariosController {
     return this.funcionariosService.obterTodos();
   }
 
+  @Post('/autenticar')
+  async autenticarUsuario(@Body() funcionario: Funcionario) {
+    return this.funcionariosService.autenticar(funcionario);
+  }
+
   @Post('/cadastro')
   async cadastrar(@Body() funcionario: Funcionario) {
     this.funcionariosService.cadastrar(funcionario);

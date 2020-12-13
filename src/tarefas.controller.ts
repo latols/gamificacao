@@ -9,9 +9,9 @@ import { TarefasService } from "./Tarefas/tarefas.service";
 
         }
 
-        @Get()
-        async retornar(): Promise<Tarefa[]> {
-            return this.tarefaService.exibirTarefas();
+        @Get(':userId')
+        async retornar(@Param('userId') id): Promise<Tarefa[]> {
+            return this.tarefaService.exibirTarefas(id);
         }
 
         @Post()
@@ -24,7 +24,7 @@ import { TarefasService } from "./Tarefas/tarefas.service";
             this.tarefaService.gerenciarTarefa(tarefa);
         }
         
-        @Put('/concluir')
+        @Put('concluir')
         async concluir(@Body() tarefa: Tarefa) {
             this.tarefaService.concluirTarefa(tarefa);
         }
