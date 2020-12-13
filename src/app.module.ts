@@ -14,10 +14,10 @@ import { FuncionariosService } from './Funcionarios/funcionarios.service';
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'gamificacao.cogvirr36b5r.sa-east-1.rds.amazonaws.com',
+      host: 'localhost',
       port: 3306,
-      username: 'admin',
-      password: 'admin123',
+      username: '',
+      password: '',
       database: 'gamificacao',
       autoLoadModels: true,
       synchronize: true,
