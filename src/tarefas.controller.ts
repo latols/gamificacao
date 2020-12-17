@@ -9,9 +9,14 @@ import { TarefasService } from "./Tarefas/tarefas.service";
 
         }
 
-        @Get(':userId')
-        async retornar(@Param('userId') id): Promise<Tarefa[]> {
+        @Get('/funcionario/:userId')
+        async retornarTarefaFuncionario(@Param('userId') id): Promise<Tarefa[]> {
             return this.tarefaService.exibirTarefas(id);
+        }
+
+        @Get(':tarefaId')
+        async retornar(@Param('tarefaId') id): Promise<Tarefa> {
+            return this.tarefaService.exibirTarefa(id);
         }
 
         @Post()
@@ -19,14 +24,14 @@ import { TarefasService } from "./Tarefas/tarefas.service";
             this.tarefaService.criarTarefa(tarefa);
         }
 
-        @Put()
-        async gerenciar(@Body() tarefa: Tarefa) {
-            this.tarefaService.gerenciarTarefa(tarefa);
+        @Put(':tarefaId')
+        async gerenciar(@Param('tarefaId') id, @Body() tarefa: Tarefa) {
+            this.tarefaService.gerenciarTarefa(id, tarefa);
         }
         
-        @Put('concluir')
-        async concluir(@Body() tarefa: Tarefa) {
-            this.tarefaService.concluirTarefa(tarefa);
+        @Put('concluir/:tarefaId')
+        async concluir(@Param('tarefaId') id, @Body() tarefa: Tarefa) {
+            this.tarefaService.concluirTarefa(id, tarefa);
         }
 
 }

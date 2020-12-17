@@ -1,4 +1,5 @@
 import { Table, Model, Column, DataType } from "sequelize-typescript"
+import { Funcionario } from "src/Funcionarios/funcionario.model";
 
 @Table
 export class Tarefa extends Model<Tarefa>{
@@ -37,7 +38,7 @@ export class Tarefa extends Model<Tarefa>{
         type: DataType.JSON,
         allowNull: true
     })
-    integrantes: string[];
+    integrantes: Funcionario[];
 
     @Column({
         type: DataType.STRING,

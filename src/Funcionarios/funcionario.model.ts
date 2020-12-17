@@ -10,6 +10,12 @@ export class Funcionario extends Model<Funcionario> {
     allowNull: false, //iniciar com 0
   })
   ajudasRealizadas: number;
+  
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: true
+  })
+  exibirGamificacao: boolean;
 
   @Column({
     type: DataType.DECIMAL,
@@ -54,20 +60,14 @@ export class Funcionario extends Model<Funcionario> {
   role: number;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.DECIMAL,
     allowNull: true,
   })
-  alcunha: Alcunha;
+  alcunha: number;
 
   @Column({
-    type: DataType.JSON,
+    type: DataType.DECIMAL,
     allowNull: true,
   })
-  badge: Badge[];
-
-  @Column({
-    type: DataType.JSON,
-    allowNull: true,
-  })
-  tarefa: Tarefa[];
+  badge: number[];
 }

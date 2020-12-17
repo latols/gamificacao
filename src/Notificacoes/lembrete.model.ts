@@ -10,7 +10,6 @@ export class Lembrete {
     const dif = moment.duration(dataHoje.diff(tarefa.prazoLimite));
     const difDias = dif.asDays();
     if (difDias <= 7) {
-      //dataHoje > tarefa.prazoLimite &&
       this.exibirLembrete = true;
       this.mensagem =
         'Faltam' +
@@ -18,7 +17,6 @@ export class Lembrete {
         'para o prazo final da sua tarefa: ' +
         tarefa.titulo;
     }
-    //if (dataHoje < tarefa.prazoLimite) {
     if (difDias < 0) {
       this.exibirLembrete = true;
       this.mensagem =

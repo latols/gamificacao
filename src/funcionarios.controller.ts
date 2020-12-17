@@ -1,5 +1,5 @@
 import {
-  Body, Controller, Delete, Get, Param, Post, Put
+  Body, Controller, Delete, Get, HttpCode, Param, Post, Put
 } from '@nestjs/common';
 import { Funcionario } from './Funcionarios/funcionario.model';
 import { FuncionariosService } from './Funcionarios/funcionarios.service';
@@ -17,7 +17,7 @@ export class FuncionariosController {
   async autenticarUsuario(@Body() funcionario: Funcionario) {
     return this.funcionariosService.autenticar(funcionario);
   }
-
+  
   @Post('/cadastro')
   async cadastrar(@Body() funcionario: Funcionario) {
     this.funcionariosService.cadastrar(funcionario);
